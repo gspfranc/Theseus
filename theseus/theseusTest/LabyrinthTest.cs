@@ -120,7 +120,7 @@ namespace TheseusTest
             {
                 return;
             }
-            Assert.Fail("No exception thrown");            
+            Assert.Fail("No exception thrown");
         }
 
         [TestMethod]
@@ -143,6 +143,6 @@ namespace TheseusTest
             File.WriteAllText(fileName, fileContent);
             var labyrinth = new Labyrinth(fileName);
             Assert.IsTrue(fileContent.Equals(labyrinth.ToString()));
-        }            
+        }
     }
 }
