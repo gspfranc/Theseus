@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace Theseus
+namespace Theseus.Case
 {
-    interface ICase : IDrawable
+    public interface ICase : IDrawable
     {
-        Point GetCoord();
+        Point Coord { get; set; }
         void MoveIn(IDude p);
     }
 }
