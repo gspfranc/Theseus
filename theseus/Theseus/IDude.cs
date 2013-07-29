@@ -8,6 +8,6 @@ namespace Theseus
 {
     public interface IDude : IDrawable
     {
-        Point Coord { get; set; }
+        public Point Coord { get; set; }
     }
 }
