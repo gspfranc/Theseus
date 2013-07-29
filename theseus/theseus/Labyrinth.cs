@@ -6,12 +6,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Theseus.Case;
 
 namespace Theseus
 {
     public class Labyrinth
     {
-        private List<List<char>> grid = new List<List<char>>(); 
+        private List<List<ICase>> grid = new List<List<ICase>>(); 
         public Labyrinth(string path)
         {            
             using (StreamReader fs = File.OpenText(path))
@@ -19,13 +20,14 @@ namespace Theseus
                 string s = "";
                 while((s = fs.ReadLine()) != null)
                 {
-                    grid.Add(s.ToList());
+                    throw new NotImplementedException();
+                    //grid.Add(s.ToList());
                 }
             }
             Validate();
         }
 
-        public Labyrinth(List<List<char>> grid)
+        public Labyrinth(List<List<ICase>> grid)
         {
             this.grid = grid;
             Validate();
@@ -45,10 +47,10 @@ namespace Theseus
                     throw new Exception("Invalid labyrinth file, Labyrinth width not uniform.");
             }
 
-            if (!grid.Any(row => row.Contains('P')))
+            if (!grid.Any(row => row.Any(a=>a is PlayerStartPosition)))
                 throw new Exception("Invalid labyrinth file, Labyrinth has no player start position");
 
-            if (!grid.Any(row => row.Contains('E')))
+            if (!grid.Any(row => row.Any(a => a is Exit)))
                 throw new Exception("Invalid labyrinth file, Labyrinth has no exit marker");
         }
 
