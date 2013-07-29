@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Theseus;
 using Theseus.Case;
-
 namespace Theseus
 {
     public interface AbstractFactoryMaze
     {
-        // TODO: changer les types
-        ICase CreateEmpty();
+        Empty CreateEmpty();
 
-        ICase CreateWall();
+        Wall CreateWall();
 
-        ICase CreateTrap();
+        Trap CreateTrap();
 
-        ICase CreatePortal3();
+        Portal CreatePortal3();
+
+        Exit CreateExit();
+
+        Empty CreateStartPosition();
     }
 }

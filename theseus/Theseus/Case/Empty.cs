@@ -6,15 +6,9 @@ using System.Text;
 
 namespace Theseus.Case
 {
-   public class Empty : ICase
+    public abstract class Empty : ACase
     {
-        public void Draw()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Point Coord { get; set; }
-        public void MoveIn(IDude p)
+        public override void MoveIn(IDude p)
         {
             p.Coord = Coord;
         }

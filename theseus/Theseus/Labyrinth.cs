@@ -12,28 +12,17 @@ namespace Theseus
 {
     public class Labyrinth
     {
-        private List<List<ICase>> grid = new List<List<ICase>>(); 
-        public Labyrinth(string path)
-        {            
-            using (StreamReader fs = File.OpenText(path))
-            {
-                string s = "";
-                while((s = fs.ReadLine()) != null)
-                {
-                    throw new NotImplementedException();
-                    //grid.Add(s.ToList());
-                }
-            }
-            Validate();
-        }
+        private List<List<ACase>> grid = new List<List<ACase>>();
+        public Labyrinth()
+        { }
 
-        public Labyrinth(List<List<ICase>> grid)
+        public Labyrinth(List<List<ACase>> grid)
         {
             this.grid = grid;
             Validate();
         }
 
-        private void Validate()
+        public void Validate()
         {
             int height = grid.Count;
 
@@ -47,7 +36,7 @@ namespace Theseus
                     throw new Exception("Invalid labyrinth file, Labyrinth width not uniform.");
             }
 
-            if (!grid.Any(row => row.Any(a=>a is PlayerStartPosition)))
+            if (!grid.Any(row => row.Any(a=>a is DungeonStartPosition)))
                 throw new Exception("Invalid labyrinth file, Labyrinth has no player start position");
 
             if (!grid.Any(row => row.Any(a => a is Exit)))
@@ -69,6 +58,12 @@ namespace Theseus
         public void Draw()
         {
             Console.Write(ToString());
+        }
+
+        public ACase this[int i, int j]
+        {
+            get { return grid[i][j]; }
+            set { grid[i][j] = value; } 
         }
     }
 }

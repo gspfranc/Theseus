@@ -6,10 +6,11 @@ using System.Text;
 
 namespace Theseus.Case
 {
-    public abstract class Exit : ACase
+    public abstract class Trap : ACase
     {
         public override void MoveIn(IDude p)
         {
+            //player.dodammage();
             p.Coord = Coord;
         }
     }

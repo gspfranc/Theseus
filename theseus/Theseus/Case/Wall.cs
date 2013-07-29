@@ -6,16 +6,9 @@ using System.Text;
 
 namespace Theseus.Case
 {
-   public class Wall : ICase
+    public abstract class Wall : ACase
     {
-        public void Draw()
-        {
-            Console.Write('=');
-        }
-
-        public Point Coord { get; set; }
-
-        public void MoveIn(IDude p)
+        public override void MoveIn(IDude p)
         {
             // Cannot move into a wall
         }

@@ -5,7 +5,11 @@ using System.Text;
 
 namespace Theseus.Case
 {
-   public class PlayerStartPosition : Empty
+    public class DungeonEmpty : Empty
     {
+        public override void Draw()
+        {
+            Console.Write(" ");
+        }
     }
 }

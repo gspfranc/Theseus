@@ -8,24 +8,34 @@ namespace Theseus
 {
     class ConcreteFactoryMaze_Dungeon : AbstractFactoryMaze 
     {
-        public ICase CreateEmpty()
+        public Empty CreateEmpty()
         {
-            throw new NotImplementedException();
+            return new DungeonEmpty();
         }
 
-        public ICase CreateWall()
+        public Wall CreateWall()
         {
-            throw new NotImplementedException();
+            return new DungeonWall();
         }
 
-        public ICase CreateTrap()
+        public Trap CreateTrap()
         {
-            throw new NotImplementedException();
+            return new DungeonTrap();
         }
 
-        public ICase CreatePortal3()
+        public Portal CreatePortal3()
         {
-            throw new NotImplementedException();
+            return new DungeonPortal();
+        }
+
+        public Exit CreateExit()
+        {
+            return new DungeonExit();
+        }
+
+        public Empty CreateStartPosition()
+        {
+            return new DungeonStartPosition();
         }
     }
 }

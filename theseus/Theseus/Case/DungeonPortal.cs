@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Drawing;
 
 namespace Theseus.Case
 {
-    public interface ICase : IDrawable
+    public class DungeonPortal : Portal
     {
-        Point Coord { get; set; }
-        void MoveIn(IDude p);
+        public override void  Draw()
+        {
+            Console.Write('O');
+        }
     }
 }
