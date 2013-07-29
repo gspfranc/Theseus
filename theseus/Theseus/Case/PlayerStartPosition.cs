@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Theseus.Case
 {
-    class PlayerStartPosition : Empty
+   public class PlayerStartPosition : Empty
     {
     }
 }

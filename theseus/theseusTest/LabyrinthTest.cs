@@ -4,25 +4,35 @@ using System.Collections.Generic;
 using Theseus;
 using System.IO;
 using System.Text;
+using Theseus.Case;
 
 namespace TheseusTest
 {
     [TestClass]
     public class LabyrinthTest
     {
+        static Wall w = new Wall();
+       static  Empty e = new Empty();
+       static Exit z = new Exit();
+       static PlayerStartPosition p = new PlayerStartPosition();
+
         [TestMethod]
         public void Valid()
         {
-            var validGrid = new List<List<char>>
+
+
+
+            var validGrid = new List<List<ICase>>
             {
-                new List<char> {'=', '=', '=', '=', '=', '=' },
-                new List<char> {'=', 'P', '=', '=', '=', '=' },
-                new List<char> {'=', ' ', '=', 'E', ' ', '=' },
-                new List<char> {'=', ' ', '=', '=', ' ', '=' },
-                new List<char> {'=', ' ', '=', '=', ' ', '=' },
-                new List<char> {'=', ' ', ' ', ' ', ' ', '=' },
-                new List<char> {'=', ' ', '=', '=', '=', '=' },
-                new List<char> {'=', '=', '=', '=', '=', '=' }
+                
+                new List<ICase> {w, w, w, w, w, w },
+                new List<ICase> {w, p, w, w, w, w },
+                new List<ICase> {w, e, w, z, e, w },
+                new List<ICase> {w, e, w, w, e, w },
+                new List<ICase> {w, e, w, w, e, w },
+                new List<ICase> {w, e, e, e, e, w },
+                new List<ICase> {w, e, w, w, w, w },
+                new List<ICase> {w, w, w, w, w, w }
             };
 
             var lab = new Labyrinth(validGrid);
@@ -33,16 +43,16 @@ namespace TheseusTest
         {
             try
             {
-                var noPlayerGrid = new List<List<char>>
+                var noPlayerGrid = new List<List<ICase>>
                 {
-                    new List<char> {'=', '=', '=', '=', '=', '=' },
-                    new List<char> {'=', ' ', '=', '=', '=', '=' },
-                    new List<char> {'=', ' ', '=', 'E', ' ', '=' },
-                    new List<char> {'=', ' ', '=', '=', ' ', '=' },
-                    new List<char> {'=', ' ', '=', '=', ' ', '=' },
-                    new List<char> {'=', ' ', ' ', ' ', ' ', '=' },
-                    new List<char> {'=', ' ', '=', '=', '=', '=' },
-                    new List<char> {'=', '=', '=', '=', '=', '=' }
+                    new List<ICase> {w, w, w, w, w, w },
+                    new List<ICase> {w, e, w, w, w, w },
+                    new List<ICase> {w, e, w, z, e, w },
+                    new List<ICase> {w, e, w, w, e, w },
+                    new List<ICase> {w, e, w, w, e, w },
+                    new List<ICase> {w, e, e, e, e, w },
+                    new List<ICase> {w, e, w, w, w, w },
+                    new List<ICase> {w, w, w, w, w, w }
                 };
 
                 var lab = new Labyrinth(noPlayerGrid);
@@ -59,16 +69,16 @@ namespace TheseusTest
         {
             try
             {
-                var noExitGrid = new List<List<char>>
+                var noExitGrid = new List<List<ICase>>
                 {
-                    new List<char> {'=', '=', '=', '=', '=', '=' },
-                    new List<char> {'=', 'P', '=', '=', '=', '=' },
-                    new List<char> {'=', ' ', '=', 'E', ' ', '=' },
-                    new List<char> {'=', ' ', '=', '=', ' ', '=' },
-                    new List<char> {'=', ' ', '=', '=', ' ', '=' },
-                    new List<char> {'=', ' ', ' ', ' ', ' ', '=' },
-                    new List<char> {'=', ' ', '=', '=', '=', '=' },
-                    new List<char> {'=', '=', '=', '=', '=', '=' }
+                    new List<ICase> {w, w, w, w, w, w },
+                    new List<ICase> {w, p, w, w, w, w },
+                    new List<ICase> {w, e, w, z, e, w },
+                    new List<ICase> {w, e, w, w, e, w },
+                    new List<ICase> {w, e, w, w, e, w },
+                    new List<ICase> {w, e, e, e, e, w },
+                    new List<ICase> {w, e, w, w, w, w },
+                    new List<ICase> {w, w, w, w, w, w }
                 };
 
                 var lab = new Labyrinth(noExitGrid);
@@ -86,16 +96,16 @@ namespace TheseusTest
         {
             try
             {
-                var notRectangleGrid = new List<List<char>>
+                var notRectangleGrid = new List<List<ICase>>
                 {
-                    new List<char> {'=', '=', '=', '=', '=', '=' },
-                    new List<char> {'=', 'P', '=', '=', '=', '=' },
-                    new List<char> {'=', ' ', '=', 'E', ' ', '=' },
-                    new List<char> {'=', ' ', '=' },
-                    new List<char> {'=', ' ', '=', '=', ' ', '=' },
-                    new List<char> {'=', ' ', ' ', ' ', ' ', '=' },
-                    new List<char> {'=', ' ', '=', '=', '=', '=' },
-                    new List<char> {'=', '=', '=', '=', '=', '=' }
+                    new List<ICase> {w, w, w, w, w, w },
+                    new List<ICase> {w, p, w, w, w, w },
+                    new List<ICase> {w, e, w, z, e, w },
+                    new List<ICase> {w, e, w },
+                    new List<ICase> {w, e, w, w, e, w },
+                    new List<ICase> {w, e, e, e, e, w },
+                    new List<ICase> {w, e, w, w, w, w },
+                    new List<ICase> {w, w, w, w, w, w }
                 };
 
                 var lab = new Labyrinth(notRectangleGrid);
@@ -112,7 +122,7 @@ namespace TheseusTest
         {
             try
             {
-                var emptyGrid = new List<List<char>>();
+                var emptyGrid = new List<List<ICase>>();
 
                 var lab = new Labyrinth(emptyGrid);
             }

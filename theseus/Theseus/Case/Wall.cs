@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Theseus.Case
 {
-    class Wall : ICase
+   public class Wall : ICase
     {
         public void Draw()
         {
