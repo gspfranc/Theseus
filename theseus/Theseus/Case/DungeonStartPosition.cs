@@ -6,5 +6,7 @@ using System.Text;
 namespace Theseus.Case
 {
    public class DungeonStartPosition : DungeonEmpty
-   {}
+   {
+       public override bool IsPlayerSpawn() { return true; }
+   }
 }

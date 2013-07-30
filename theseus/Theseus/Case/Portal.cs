@@ -7,7 +7,7 @@ namespace Theseus.Case
 {
     public abstract class Portal : ACase
     {
-        public override void MoveIn(IDude p)
+        public override void MoveIn(ADude p)
         {
             p.Coord = Coord;
         }

@@ -8,7 +8,7 @@ namespace Theseus.Case
 {
     public abstract class Wall : ACase
     {
-        public override void MoveIn(IDude p)
+        public override void MoveIn(ADude p)
         {
             // Cannot move into a wall
         }

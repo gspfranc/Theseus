@@ -8,7 +8,7 @@ namespace Theseus.Case
 {
     public abstract class Empty : ACase
     {
-        public override void MoveIn(IDude p)
+        public override void MoveIn(ADude p)
         {
             p.Coord = Coord;
         }

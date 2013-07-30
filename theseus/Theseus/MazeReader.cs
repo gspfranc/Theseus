@@ -9,9 +9,8 @@ namespace Theseus
 {
     public class MazeReader
     {
-        
-
         private AbstractFactoryMaze afm;
+        private List<GamePad> gamePads = new List<GamePad>();
 
         private AbstractFactoryMaze GetAbstractFactory(String s)
         {
@@ -52,7 +51,13 @@ namespace Theseus
             afm = GetAbstractFactory(GetLine(sr));
             int x = int.Parse(GetLine(sr));
             int y = int.Parse(GetLine(sr));
+
+            
+
             Labyrinth maze = new Labyrinth(x, y);
+
+            foreach (var gp in gamePads)
+                maze.AddPlayer(new Player(gp));
 
             int i = 0;
             while (!sr.EndOfStream)
@@ -60,17 +65,22 @@ namespace Theseus
                 String line = sr.ReadLine();
                 String[] blocks = line.Split(' ');
                 int j= 0;
-               foreach (String block in blocks)
+                foreach (String block in blocks)
                 {
-                    maze[i,j]= GetCase(block);
+                    maze[i, j] = GetCase(block);
                     ++j;
                 }
                 ++i;
             }
 
-            maze.Validate();
+            //maze.Validate();
 
             return maze;
+        }
+
+        public void AddGamePad(GamePad gp)
+        {
+            gamePads.Add(gp);
         }
     }
 }

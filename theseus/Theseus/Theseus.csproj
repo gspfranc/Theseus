@@ -58,10 +58,12 @@
     <Compile Include="Case\Trap.cs" />
     <Compile Include="Case\Wall.cs" />
     <Compile Include="ConcreteFactoryMaze_Dungeon.cs" />
+    <Compile Include="GamePad.cs" />
     <Compile Include="IDrawable.cs" />
-    <Compile Include="IDude.cs" />
+    <Compile Include="ADude.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="MazeReader.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

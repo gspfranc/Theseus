@@ -9,8 +9,12 @@ namespace Theseus.Case
     public abstract class ACase : IDrawable
     {
         public Point Coord { get; set; }
-        public abstract void MoveIn(IDude p);
+        public abstract void MoveIn(ADude p);
 
         public abstract void Draw();
+        public virtual bool IsPlayerSpawn()
+        {
+            return false;
+        }
     }
 }

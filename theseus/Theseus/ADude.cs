@@ -6,8 +6,10 @@ using System.Drawing;
 
 namespace Theseus
 {
-    public interface IDude : IDrawable
+    public abstract class ADude : IDrawable
     {
-        Point Coord { get; set; }
+        public Point Coord { get; set; }
+        
+        public abstract void Draw();
     }
 }

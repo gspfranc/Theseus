@@ -8,9 +8,9 @@ namespace Theseus.Case
 {
     public abstract class Trap : ACase
     {
-        public override void MoveIn(IDude p)
+        public override void MoveIn(ADude p)
         {
-            //player.dodammage();
+            //player.dodammage(15);
             p.Coord = Coord;
         }
     }
