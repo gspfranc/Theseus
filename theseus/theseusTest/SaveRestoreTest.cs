@@ -41,13 +41,7 @@ namespace TheseusTest
             saveRestore.save("save.dat", labyrinth);
             var lab2 = saveRestore.restore("save.dat");
 
-            Assert.IsTrue(labyrinth.ToString() == lab2.ToString());
-                   
-
-
-
-            
-
+            Assert.IsTrue(labyrinth.ToString() == lab2.ToString());     
         }
     }
 }

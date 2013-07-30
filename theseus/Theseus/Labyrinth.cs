@@ -34,8 +34,6 @@ namespace Theseus
                 throw new Exception("Invalid labyrinth file, Labyrinth is empty");
 
             int width = grid.GetLength(1);
-            for(int i=0; i != grid.;++i)
-            Boolean isNull = false;
             var hasPlayer = false;
             var hasExit = false;
 
@@ -95,7 +93,11 @@ namespace Theseus
             foreach(var dude in dudes)
             {
                 Console.SetCursorPosition(dude.Coord.X, dude.Coord.Y);
-                dude.Draw();
+                
+                var sb = new StringBuilder();
+                var sw = new StringWriter(sb);
+			    Console.SetOut(sw);
+                dude.Draw(sw);
             }
         }
 

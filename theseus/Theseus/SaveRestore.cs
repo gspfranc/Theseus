@@ -7,12 +7,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Theseus
 {
-  public  class SaveRestore
+    public class SaveRestore
     {
 
-        public void save(String FileName,Labyrinth lab)
+        public void save(String FileName, Labyrinth lab)
         {
-           Stream TestFileStream = File.Create(FileName);
+            Stream TestFileStream = File.Create(FileName);
             BinaryFormatter serializer = new BinaryFormatter();
             serializer.Serialize(TestFileStream, lab);
             TestFileStream.Close();

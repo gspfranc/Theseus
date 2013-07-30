@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace Theseus
 {
@@ -14,9 +15,9 @@ namespace Theseus
         int health { get; set; }
         public GamePad gamePad { get; private set; }
 
-        public override void Draw()
+        public override void Draw(StringWriter s)
         {
-            Console.Write('P');
+            s.Write('P');
         }
     }
 }
