@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Theseus.Case
 {
+    [Serializable()]
     public abstract class Trap : ACase
     {
         public override void MoveIn(ADude p)

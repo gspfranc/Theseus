@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.IO;
 
 namespace Theseus.Case
 {
     [Serializable()]
-    public class DungeonExit : Exit
+    public abstract class  StartPosition: Empty
     {
-        public override void Draw(StringWriter s)
-        {
-            s.Write("E");
-        }
     }
 }

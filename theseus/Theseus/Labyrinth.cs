@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using Theseus.Case;
 using System.Drawing;
 
+
 namespace Theseus
-{
+{   [Serializable()]
     public class Labyrinth : IDrawable
     {
         private ACase[,] grid;
@@ -23,52 +24,46 @@ namespace Theseus
             grid = new ACase[sizeX, sizeY];            
         }
 
-        public Labyrinth(List<List<ACase>> grid)
-        {
-            for (int i = 0; i != grid.Count; ++i)
-            {
-                for(int j=0; i!= grid[i].Count; ++j)
-                    this.grid[i,j] = grid[i][j];
-            }            
-            Validate();
-        }
+        
 
-        #region stuff
         public void Validate()
         {
-            int height = grid.Length;
+            int height = grid.GetLength(0);
 
             if (height == 0)
                 throw new Exception("Invalid labyrinth file, Labyrinth is empty");
-            /*
-            foreach(var case in grid)
-            {
 
+            int width = grid.GetLength(1);
+            for(int i=0; i != grid.;++i)
+            Boolean isNull = false;
+            var hasPlayer = false;
+            var hasExit = false;
+
+            foreach (ACase i in grid)
+            {    
+                if (i == null)
+                    throw new Exception("Invalid labyrinth file, Labyrinth is not rectangle");
+                if (i is Exit)
+                    hasExit = true;
+                if (i is StartPosition)
+                    hasPlayer = true;
             }
 
-            if (!grid.Any(a=>a is DungeonStartPosition))
-                throw new Exception("Invalid labyrinth file, Labyrinth has no player start position");
+            if(!hasPlayer)
+                throw new Exception("Invalid labyrinth file, No Player is present");
+            if (!hasExit)
+                throw new Exception("Invalid labyrinth file, No Exit is present");
 
-            if (!grid.Any(row => row.Any(a => a is Exit)))
-                throw new Exception("Invalid labyrinth file, Labyrinth has no exit marker");*/
+          
         }
-        /*
+        
         public override string ToString()
         {
             var sb = new StringBuilder();
-            for (int i = 0; i != grid.GetLength(0); ++i)
-            {
-                for (int j = 0; i != grid.GetLength(1); ++j)
-                {
-                    sb.Append(grid[i, j].ToString());
-                }
-                sb.Append('\n');
-                //Console.Write("\n");                  
-            }
-
-            return sb.ToString();
-        }*/
-        #endregion
+            var sw = new StringWriter(sb);
+            Draw(sw);
+            return sw.ToString();
+        }
 
         public void AddPlayer(Player p)
         {
@@ -78,14 +73,24 @@ namespace Theseus
 
         public void Draw()
         {
+            var sb = new StringBuilder();
+            var sw = new StringWriter(sb);
             Console.SetCursorPosition(0, 0);
+			Console.SetOut(sw);
+            Draw(sw);
+
+        }
+
+
+        public void Draw(StringWriter s)
+        {
             for (int i = 0; i != grid.GetLength(0); ++i)
             {
                 for (int j = 0; j != grid.GetLength(1); ++j)
                 {
-                    grid[i, j].Draw();
+                    grid[i, j].Draw(s);
                 }
-                Console.Write("\n");                  
+                s.Write("\n");                  
             }
             foreach(var dude in dudes)
             {
@@ -140,5 +145,7 @@ namespace Theseus
                 }
             } 
         }
+
+      
     }
 }

@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace Theseus.Case
 {
+    [Serializable()]
     public class DungeonEmpty : Empty
     {
-        public override void Draw()
+        public override void Draw(StringWriter s)
         {
-            Console.Write(" ");
+            s.Write(" ");
+
         }
     }
 }
