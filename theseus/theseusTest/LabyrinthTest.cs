@@ -133,27 +133,6 @@ namespace TheseusTest
             Assert.Fail("No exception thrown");
         }
 
-        /*[TestMethod]
-        public void LoadFromFileDisplay()
-        {
-            var sb = new StringBuilder();
-            sb.AppendLine("======");
-            sb.AppendLine("=P====");
-            sb.AppendLine("= =E =");
-            sb.AppendLine("= == =");
-            sb.AppendLine("= == =");
-            sb.AppendLine("=    =");
-            sb.AppendLine("= ====");
-            sb.AppendLine("=    =");
-            sb.AppendLine("======");
 
-            var fileContent = sb.ToString();
-
-            string fileName = "testLoadFromFileDisplay.txt";
-            File.WriteAllText(fileName, fileContent);
-            var labyrinth = new Labyrinth(fileName);
-            Assert.IsTrue(fileContent.Equals(labyrinth.ToString()));
-        }
-        //*/
     }
 }

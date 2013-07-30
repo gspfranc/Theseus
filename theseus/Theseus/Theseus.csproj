@@ -45,17 +45,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactoryMaze.cs" />
+    <Compile Include="Case\ACase.cs" />
+    <Compile Include="Case\DungeonEmpty.cs" />
+    <Compile Include="Case\DungeonExit.cs" />
+    <Compile Include="Case\DungeonPortal.cs" />
+    <Compile Include="Case\DungeonStartPosition.cs" />
+    <Compile Include="Case\DungeonTrap.cs" />
+    <Compile Include="Case\DungeonWall.cs" />
     <Compile Include="Case\Empty.cs" />
     <Compile Include="Case\Exit.cs" />
-    <Compile Include="Case\ICase.cs" />
-    <Compile Include="Case\PlayerStartPosition.cs" />
+    <Compile Include="Case\Portal.cs" />
+    <Compile Include="Case\Trap.cs" />
     <Compile Include="Case\Wall.cs" />
-    <Compile Include="ConcreteFactoryMaze_80s.cs" />
     <Compile Include="ConcreteFactoryMaze_Dungeon.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="IDude.cs" />
     <Compile Include="Labyrinth.cs" />
-    <Compile Include="Maze.cs" />
     <Compile Include="MazeReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

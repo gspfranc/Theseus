@@ -54,7 +54,7 @@ namespace Theseus
                 String line = sr.ReadLine();
                 String[] blocks = line.Split(' ');
                 int j= 0;
-                foreach (String block in blocks)
+               foreach (String block in blocks)
                 {
                     maze[i,j]= GetCase(block);
                     ++j;

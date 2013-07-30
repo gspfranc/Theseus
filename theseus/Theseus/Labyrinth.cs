@@ -10,7 +10,7 @@ using Theseus.Case;
 
 namespace Theseus
 {
-    public class Labyrinth
+    public class Labyrinth : IDrawable
     {
         private List<List<ACase>> grid = new List<List<ACase>>();
         public Labyrinth()
@@ -48,10 +48,13 @@ namespace Theseus
             var sb = new StringBuilder();
             foreach (var row in grid)
             {
-                foreach(var c in row)
-                    sb.Append(c);
-                sb.AppendLine();
+                foreach (var c in row)
+                {
+                    c.Draw();
+                }
+                Console.Write("\n");                  
             }
+
             return sb.ToString();
         }
 
