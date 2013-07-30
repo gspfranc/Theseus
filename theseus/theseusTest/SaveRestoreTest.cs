@@ -1,15 +1,18 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Theseus;
 using System.IO;
 
-namespace Theseus
+namespace TheseusTest
 {
-    class Program
+    [TestClass]
+    public class SaveRestoreTest
     {
-        static void Main(string[] args)
+        [TestMethod]
+        public void TestSaveRestore()
         {
             var sb = new StringBuilder();
 
@@ -28,13 +31,23 @@ namespace Theseus
 
             var fileContent = sb.ToString();
 
-            string fileName = "test.txt";
+            string fileName = "testSaveRestore.txt";
             File.WriteAllText(fileName, fileContent);
             MazeReader reader = new MazeReader();
             var labyrinth = reader.CreateMaze(fileName);
-
-            Console.Write(labyrinth.ToString());
             
+
+            var saveRestore = new SaveRestore();
+            saveRestore.save("save.dat", labyrinth);
+            var lab2 = saveRestore.restore("save.dat");
+
+            Assert.IsTrue(labyrinth.ToString() == lab2.ToString());
+                   
+
+
+
+            
+
         }
     }
 }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace Theseus.Case
 {
+    [Serializable()]
     public abstract class Exit : ACase
     {
         public override void MoveIn(IDude p)

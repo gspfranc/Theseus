@@ -16,46 +16,34 @@ namespace TheseusTest
         static Exit z = new DungeonExit();
         static DungeonStartPosition p = new DungeonStartPosition();
 
-        [TestMethod]
-        public void Valid()
-        {
-
-
-
-            var validGrid = new List<List<ACase>>
-            {
-                
-                new List<ACase> {w, w, w, w, w, w },
-                new List<ACase> {w, p, w, w, w, w },
-                new List<ACase> {w, e, w, z, e, w },
-                new List<ACase> {w, e, w, w, e, w },
-                new List<ACase> {w, e, w, w, e, w },
-                new List<ACase> {w, e, e, e, e, w },
-                new List<ACase> {w, e, w, w, w, w },
-                new List<ACase> {w, w, w, w, w, w }
-            };
-
-            var lab = new Labyrinth(validGrid);
-        }
+       
 
         [TestMethod]
         public void NoPlayer()
         {
             try
             {
-                var noPlayerGrid = new List<List<ACase>>
-                {
-                    new List<ACase> {w, w, w, w, w, w },
-                    new List<ACase> {w, e, w, w, w, w },
-                    new List<ACase> {w, e, w, z, e, w },
-                    new List<ACase> {w, e, w, w, e, w },
-                    new List<ACase> {w, e, w, w, e, w },
-                    new List<ACase> {w, e, e, e, e, w },
-                    new List<ACase> {w, e, w, w, w, w },
-                    new List<ACase> {w, w, w, w, w, w }
-                };
+                var sb = new StringBuilder();
 
-                var lab = new Labyrinth(noPlayerGrid);
+                sb.AppendLine("dungeon");
+                sb.AppendLine("9");
+                sb.AppendLine("6");
+                sb.AppendLine("= = = = = =");
+                sb.AppendLine("= o = = = =");
+                sb.AppendLine("= o = E o =");
+                sb.AppendLine("= o = = o =");
+                sb.AppendLine("= o = = o =");
+                sb.AppendLine("= o o o o =");
+                sb.AppendLine("= o = = = =");
+                sb.AppendLine("= o o o o =");
+                sb.AppendLine("= = = = = =");
+
+                var fileContent = sb.ToString();
+
+                string fileName = "testNoPlayer.txt";
+                File.WriteAllText(fileName, fileContent);
+                MazeReader reader = new MazeReader();
+                var labyrinth = reader.CreateMaze(fileName);
             }
             catch (Exception)
             {
@@ -69,19 +57,28 @@ namespace TheseusTest
         {
             try
             {
-                var noExitGrid = new List<List<ACase>>
-                {
-                    new List<ACase> {w, w, w, w, w, w },
-                    new List<ACase> {w, p, w, w, w, w },
-                    new List<ACase> {w, e, w, e, e, w },
-                    new List<ACase> {w, e, w, w, e, w },
-                    new List<ACase> {w, e, w, w, e, w },
-                    new List<ACase> {w, e, e, e, e, w },
-                    new List<ACase> {w, e, w, w, w, w },
-                    new List<ACase> {w, w, w, w, w, w }
-                };
+                var sb = new StringBuilder();
 
-                var lab = new Labyrinth(noExitGrid);
+                sb.AppendLine("dungeon");
+                sb.AppendLine("9");
+                sb.AppendLine("6");
+                sb.AppendLine("= = = = = =");
+                sb.AppendLine("= P = = = =");
+                sb.AppendLine("= o = o o =");
+                sb.AppendLine("= o = = o =");
+                sb.AppendLine("= o = = o =");
+                sb.AppendLine("= o o o o =");
+                sb.AppendLine("= o = = = =");
+                sb.AppendLine("= o o o o =");
+                sb.AppendLine("= = = = = =");
+
+                var fileContent = sb.ToString();
+
+                string fileName = "TestNoExit.txt";
+                File.WriteAllText(fileName, fileContent);
+                MazeReader reader = new MazeReader();
+                var labyrinth = reader.CreateMaze(fileName);
+
 
             }
             catch (Exception)
@@ -96,19 +93,28 @@ namespace TheseusTest
         {
             try
             {
-                var notRectangleGrid = new List<List<ACase>>
-                {
-                    new List<ACase> {w, w, w, w, w, w },
-                    new List<ACase> {w, p, w, w, w, w },
-                    new List<ACase> {w, e, w, z, e, w },
-                    new List<ACase> {w, e, w },
-                    new List<ACase> {w, e, w, w, e, w },
-                    new List<ACase> {w, e, e, e, e, w },
-                    new List<ACase> {w, e, w, w, w, w },
-                    new List<ACase> {w, w, w, w, w, w }
-                };
+                var sb = new StringBuilder();
 
-                var lab = new Labyrinth(notRectangleGrid);
+                sb.AppendLine("dungeon");
+                sb.AppendLine("9");
+                sb.AppendLine("6");
+                sb.AppendLine("= = = = = =");
+                sb.AppendLine("= P = = = =");
+                sb.AppendLine("= o = E o =");
+                sb.AppendLine("= o = = o =");
+                sb.AppendLine("= o =");
+                sb.AppendLine("= o o o o =");
+                sb.AppendLine("= o = = = =");
+                sb.AppendLine("= o o o o =");
+                sb.AppendLine("= = = = = =");
+
+                var fileContent = sb.ToString();
+
+                string fileName = "TestNotRectangle.txt";
+                File.WriteAllText(fileName, fileContent);
+                MazeReader reader = new MazeReader();
+                var labyrinth = reader.CreateMaze(fileName);
+
 
             }
             catch (Exception)
@@ -122,9 +128,19 @@ namespace TheseusTest
         {
             try
             {
-                var emptyGrid = new List<List<ACase>>();
+                var sb = new StringBuilder();
 
-                var lab = new Labyrinth(emptyGrid);
+                sb.AppendLine("dungeon");
+                sb.AppendLine("0");
+                sb.AppendLine("0");
+                
+
+                var fileContent = sb.ToString();
+
+                string fileName = "TestEmpty.txt";
+                File.WriteAllText(fileName, fileContent);
+                MazeReader reader = new MazeReader();
+                var labyrinth = reader.CreateMaze(fileName);
             }
             catch (Exception)
             {

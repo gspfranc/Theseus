@@ -55,6 +55,7 @@
     <Compile Include="Case\Empty.cs" />
     <Compile Include="Case\Exit.cs" />
     <Compile Include="Case\Portal.cs" />
+    <Compile Include="Case\StartPosition.cs" />
     <Compile Include="Case\Trap.cs" />
     <Compile Include="Case\Wall.cs" />
     <Compile Include="ConcreteFactoryMaze_Dungeon.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="MazeReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveRestore.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

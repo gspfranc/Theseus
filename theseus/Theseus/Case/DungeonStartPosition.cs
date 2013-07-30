@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace Theseus.Case
 {
-   public class DungeonStartPosition : DungeonEmpty
-   {}
+    [Serializable()]
+   public class DungeonStartPosition : StartPosition
+   {
+       public override void Draw(StringWriter s)
+       {
+           s.Write(" ");
+       }
+   }
 }
