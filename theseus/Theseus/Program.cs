@@ -11,7 +11,9 @@ namespace Theseus
     {
         static void Main(string[] args)
         {
-           
+            MazeReader mr = new MazeReader();
+            Labyrinth maze = mr.CreateMaze(@"U:\dah.txt");
+            maze.Draw();
         }
     }
 }

@@ -12,61 +12,75 @@ namespace Theseus
 {
     public class Labyrinth : IDrawable
     {
-        private List<List<ACase>> grid = new List<List<ACase>>();
-        public Labyrinth()
-        { }
+        private ACase[,] grid;
+        public Labyrinth(int sizeX, int sizeY)
+        {
+            grid = new ACase[sizeX, sizeY];
+        }
 
         public Labyrinth(List<List<ACase>> grid)
         {
-            this.grid = grid;
+            for (int i = 0; i != grid.Count; ++i)
+            {
+                for(int j=0; i!= grid[i].Count; ++j)
+                    this.grid[i,j] = grid[i][j];
+            }
             Validate();
         }
 
         public void Validate()
         {
-            int height = grid.Count;
+            int height = grid.Length;
 
             if (height == 0)
                 throw new Exception("Invalid labyrinth file, Labyrinth is empty");
-
-            int width = grid[0].Count;
-            foreach (var row in grid)
+            /*
+            int width = grid.GetLength(0);
+            for(int i=0; i != grid.;++i)
             {
-                if (row.Count != width)
+                if (grid.GetLength(i) != width)
                     throw new Exception("Invalid labyrinth file, Labyrinth width not uniform.");
-            }
-
+            }*/
+            /*
             if (!grid.Any(row => row.Any(a=>a is DungeonStartPosition)))
                 throw new Exception("Invalid labyrinth file, Labyrinth has no player start position");
 
             if (!grid.Any(row => row.Any(a => a is Exit)))
-                throw new Exception("Invalid labyrinth file, Labyrinth has no exit marker");
+                throw new Exception("Invalid labyrinth file, Labyrinth has no exit marker");*/
         }
-
+        /*
         public override string ToString()
         {
             var sb = new StringBuilder();
-            foreach (var row in grid)
+            for (int i = 0; i != grid.GetLength(0); ++i)
             {
-                foreach (var c in row)
+                for (int j = 0; i != grid.GetLength(1); ++j)
                 {
-                    c.Draw();
+                    sb.Append(grid[i, j].ToString());
                 }
-                Console.Write("\n");                  
+                sb.Append('\n');
+                //Console.Write("\n");                  
             }
 
             return sb.ToString();
-        }
+        }*/
 
         public void Draw()
         {
-            Console.Write(ToString());
+            for (int i = 0; i != grid.GetLength(0); ++i)
+            {
+                for (int j = 0; j != grid.GetLength(1); ++j)
+                {
+                    grid[i, j].Draw();
+                }
+                Console.Write("\n");                  
+            }
         }
 
         public ACase this[int i, int j]
         {
-            get { return grid[i][j]; }
-            set { grid[i][j] = value; } 
+            get { return grid[i,j]; }
+            set { grid[i,j] = value; } 
         }
     }
 }

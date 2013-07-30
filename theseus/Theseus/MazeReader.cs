@@ -38,15 +38,21 @@ namespace Theseus
             return afm.CreateEmpty();
         }
 
+        public String GetLine(StreamReader sr)
+        {
+            if (sr.EndOfStream)
+                throw new Exception("DUMBASS");
+            return sr.ReadLine();
+        }
+
         public Labyrinth CreateMaze(String path)
         {
             StreamReader sr = new StreamReader(path);
 
-            if (sr.EndOfStream)
-                throw new Exception("DUMBASS");
-
-            afm = GetAbstractFactory(sr.ReadLine());
-            Labyrinth maze = new Labyrinth();
+            afm = GetAbstractFactory(GetLine(sr));
+            int x = int.Parse(GetLine(sr));
+            int y = int.Parse(GetLine(sr));
+            Labyrinth maze = new Labyrinth(x, y);
 
             int i = 0;
             while (!sr.EndOfStream)
