@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactoryMaze.cs" />
+    <Compile Include="Music\Beep.cs" />
     <Compile Include="Case\ACase.cs" />
     <Compile Include="Case\DungeonEmpty.cs" />
     <Compile Include="Case\DungeonExit.cs" />
@@ -59,15 +60,29 @@
     <Compile Include="Case\Trap.cs" />
     <Compile Include="Case\Wall.cs" />
     <Compile Include="ConcreteFactoryMaze_Dungeon.cs" />
+    <Compile Include="ConsoleAdaptor.cs" />
     <Compile Include="GamePad.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="ADude.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="MazeReader.cs" />
+    <Compile Include="Music\ConsoleSong.cs" />
+    <Compile Include="Music\ISong.cs" />
+    <Compile Include="Music\Songs.cs" />
+    <Compile Include="Music\WavSong.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveRestore.cs" />
+    <Compile Include="Music\Tone.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Songs\QuickSilver.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Songs\tetris.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
