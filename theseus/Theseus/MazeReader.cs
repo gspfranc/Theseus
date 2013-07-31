@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using Theseus.Case;
+using Theseus.Music;
 
 namespace Theseus
 {
@@ -51,10 +52,12 @@ namespace Theseus
             afm = GetAbstractFactory(GetLine(sr));
             int x = int.Parse(GetLine(sr));
             int y = int.Parse(GetLine(sr));
-
-            
+            String song = GetLine(sr);
+            String[] songs= song.Split(' ');
+                  
 
             Labyrinth maze = new Labyrinth(x, y);
+            maze.song = getSong(songs[0], songs[1]);
 
             foreach (var gp in gamePads)
                 maze.AddPlayer(new Player(gp));
@@ -82,5 +85,19 @@ namespace Theseus
         {
             gamePads.Add(gp);
         }
+
+        public ISong getSong(String s,String path)
+        {
+            switch (s)
+            {
+                case "wav": return new WavSong(path);
+                case "console" :
+                default: return new ConsoleSong(path);
+
+            }
+
+        }
     }
+
+
 }

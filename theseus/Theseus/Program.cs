@@ -20,6 +20,8 @@ namespace Theseus
             sb.AppendLine("dungeon");
             sb.AppendLine("9");
             sb.AppendLine("6");
+           // sb.AppendLine("wav .\\Songs\\QuickSilver.wav");
+            sb.AppendLine("console .\\Songs\\tetris.txt");
             sb.AppendLine("= = = = = =");
             sb.AppendLine("= P = = = =");
             sb.AppendLine("= o = E o =");

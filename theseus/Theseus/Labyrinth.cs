@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Theseus.Case;
 using System.Drawing;
+using Theseus.Music;
+using System.Threading;
 
 
 namespace Theseus
@@ -19,6 +21,7 @@ namespace Theseus
         private List<Player> player = new List<Player>();
         private List<ADude> dudes= new List<ADude>();
         private IGameEngine ge = new GameEngineConsole();
+        public ISong song { get; set; }
 
         public Labyrinth(int sizeX, int sizeY)
         {
@@ -87,12 +90,15 @@ namespace Theseus
 
         public bool Play()
         {
+            if (song != null)
+                song.play();
 
             player[0].Coord = playerStartPosition[0].Coord;
 
             Console.SetWindowSize(Math.Max(grid.GetLength(0), 14), grid.GetLength(1) + 1); // La console requiert une largeur minimale de 14 caratères.
             Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
             ConsoleKey ck;
+
             Draw();
             while ((ck = Console.ReadKey().Key) != ConsoleKey.Escape)
             {
@@ -109,7 +115,7 @@ namespace Theseus
                 }
                 Draw();
             }
-            
+
             return false;
         }
 
