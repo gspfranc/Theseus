@@ -9,9 +9,9 @@ namespace Theseus.Case
     [Serializable()]
     public class DungeonPortal : Portal
     {
-        public override void  Draw(StringWriter s)
+        public override void  Draw(IGameEngine s)
         {
-            s.Write('O');
+            s.Draw(Coord, 'O');
         }
     }
 }

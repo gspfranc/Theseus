@@ -13,7 +13,7 @@ namespace Theseus.Case
         public Point Coord { get; set; }
         public abstract void MoveIn(ADude p);
 
-        public abstract void Draw(StringWriter s);
+        public abstract void Draw(IGameEngine s);
         public virtual bool IsPlayerSpawn()
         {
             return false;

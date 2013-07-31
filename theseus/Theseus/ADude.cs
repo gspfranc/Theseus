@@ -12,6 +12,6 @@ namespace Theseus
     {
         public Point Coord { get; set; }
         
-        public abstract void Draw(StringWriter s);
+        public abstract void Draw(IGameEngine s);
     }
 }

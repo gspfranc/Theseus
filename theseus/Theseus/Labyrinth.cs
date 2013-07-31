@@ -18,6 +18,7 @@ namespace Theseus
         List<ACase> playerStartPosition = new List<ACase>();
         private List<Player> player = new List<Player>();
         private List<ADude> dudes= new List<ADude>();
+        private IGameEngine ge = new GameEngineConsole();
 
         public Labyrinth(int sizeX, int sizeY)
         {
@@ -55,14 +56,6 @@ namespace Theseus
           
         }
         
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            var sw = new StringWriter(sb);
-            Draw(sw);
-            return sw.ToString();
-        }
-
         public void AddPlayer(Player p)
         {
             player.Add(p);
@@ -71,33 +64,19 @@ namespace Theseus
 
         public void Draw()
         {
-            var sb = new StringBuilder();
-            var sw = new StringWriter(sb);
-            Console.SetCursorPosition(0, 0);
-			Console.SetOut(sw);
-            Draw(sw);
-
+            Draw(ge);
         }
 
-
-        public void Draw(StringWriter s)
+        public void Draw(IGameEngine s)
         {
-            for (int i = 0; i != grid.GetLength(0); ++i)
+            foreach (ACase c in grid)
             {
-                for (int j = 0; j != grid.GetLength(1); ++j)
-                {
-                    grid[i, j].Draw(s);
-                }
-                s.Write("\n");                  
+                c.Draw(s);
             }
+
             foreach(var dude in dudes)
             {
-                Console.SetCursorPosition(dude.Coord.X, dude.Coord.Y);
-                
-                var sb = new StringBuilder();
-                var sw = new StringWriter(sb);
-			    Console.SetOut(sw);
-                dude.Draw(sw);
+                dude.Draw(s);
             }
         }
 
@@ -111,8 +90,8 @@ namespace Theseus
 
             player[0].Coord = playerStartPosition[0].Coord;
 
-            Console.SetWindowSize(grid.GetLength(0), grid.GetLength(1) + 1);
-            Console.SetBufferSize(grid.GetLength(0), grid.GetLength(1) + 1);
+            Console.SetWindowSize(Math.Max(grid.GetLength(0), 14), grid.GetLength(1) + 1); // La console requiert une largeur minimale de 14 caratères.
+            Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
             ConsoleKey ck;
             Draw();
             while ((ck = Console.ReadKey().Key) != ConsoleKey.Escape)

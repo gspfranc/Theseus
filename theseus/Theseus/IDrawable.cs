@@ -8,6 +8,6 @@ namespace Theseus
 {
     public interface IDrawable
     {
-        void Draw(StringWriter s);
+        void Draw(IGameEngine s);
     }
 }

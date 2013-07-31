@@ -9,9 +9,9 @@ namespace Theseus.Case
     [Serializable()]
     public class DungeonExit : Exit
     {
-        public override void Draw(StringWriter s)
+        public override void Draw(IGameEngine s)
         {
-            s.Write("E");
+            s.Draw(Coord, 'E');
         }
     }
 }

@@ -16,9 +16,9 @@ namespace Theseus
         int health { get; set; }
         public GamePad gamePad { get; private set; }
 
-        public override void Draw(StringWriter s)
+        public override void Draw(IGameEngine s)
         {
-            s.Write('P');
+            s.Draw(Coord, 'P');
         }
     }
 }

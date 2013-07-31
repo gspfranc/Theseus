@@ -10,9 +10,9 @@ namespace Theseus.Case
    public class DungeonStartPosition : StartPosition
    {
        public override bool IsPlayerSpawn() { return true; }
-       public override void Draw(StringWriter s)
+       public override void Draw(IGameEngine s)
        {
-           s.Write(" ");
+           s.Draw(Coord, ' ');
        }
    }
 }

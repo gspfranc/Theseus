@@ -9,9 +9,9 @@ namespace Theseus.Case
     [Serializable()]
     public class DungeonTrap : Trap
     {
-        public override void Draw(StringWriter s)
+        public override void Draw(IGameEngine s)
         {
-            s.Write('X');
+            s.Draw(Coord, 'X');
         }
     }
 }
