@@ -17,6 +17,7 @@ namespace Theseus
     public class Labyrinth : IDrawable
     {
         private ACase[,] grid;
+        private const int RADIUS_VIEW = 3;
         List<ACase> playerStartPosition = new List<ACase>();
         private List<Player> player = new List<Player>();
         private List<ADude> dudes= new List<ADude>();
@@ -72,9 +73,17 @@ namespace Theseus
 
         public void Draw(IGameEngine s)
         {
+            Point p = player[0].Coord;
+            var e = new DungeonEmpty();
+            
             foreach (ACase c in grid)
             {
-                c.Draw(s);
+                if (Math.Abs(c.Coord.X - p.X) < RADIUS_VIEW && Math.Abs(c.Coord.Y - p.Y) < RADIUS_VIEW)
+                    c.Draw(s);
+                else
+                    e.Coord = c.Coord;
+                    e.Draw(s);
+
             }
 
             foreach(var dude in dudes)
