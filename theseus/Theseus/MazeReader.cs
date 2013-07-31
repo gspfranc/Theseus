@@ -73,7 +73,7 @@ namespace Theseus
                 ++i;
             }
 
-            //maze.Validate();
+            maze.Validate();
 
             return maze;
         }

@@ -7,6 +7,7 @@ using System.IO;
 
 namespace Theseus
 {
+    [Serializable()]
     public abstract class ADude : IDrawable
     {
         public Point Coord { get; set; }

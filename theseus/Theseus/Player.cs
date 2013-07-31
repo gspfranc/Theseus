@@ -6,6 +6,7 @@ using System.IO;
 
 namespace Theseus
 {
+    [Serializable()]
     public class Player : ADude
     {
         public Player(GamePad gp)
