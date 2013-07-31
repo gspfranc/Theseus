@@ -53,7 +53,7 @@ namespace Theseus
 
             Console.BackgroundColor = bc;
             Console.ForegroundColor = fc;
-            Console.SetCursorPosition(coord.X, coord.Y);
+            Console.SetCursorPosition(coord.Y, coord.X);
             Console.Write(c);
         }
     }

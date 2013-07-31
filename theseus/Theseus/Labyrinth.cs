@@ -95,7 +95,9 @@ namespace Theseus
 
             player[0].Coord = playerStartPosition[0].Coord;
 
-            Console.SetWindowSize(Math.Max(grid.GetLength(0), 14), grid.GetLength(1) + 1); // La console requiert une largeur minimale de 14 caratères.
+            //Console.SetWindowSize(Math.Max(grid.GetLength(0), 14), grid.GetLength(1) + 1); // La console requiert une largeur minimale de 14 caratères.
+
+            Console.SetWindowSize(Math.Max(grid.GetLength(1)+1, 14), grid.GetLength(0) + 1); // La console requiert une largeur minimale de 14 caratères.
             Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
             ConsoleKey ck;
 
@@ -105,13 +107,13 @@ namespace Theseus
                 foreach (var p in player)
                 { 
                     if(p.gamePad.up == ck)
-                        this[p.Coord.X, p.Coord.Y - 1].MoveIn(p);
+                        this[p.Coord.X-1, p.Coord.Y].MoveIn(p);
                     else if (p.gamePad.down == ck)
-                        this[p.Coord.X, p.Coord.Y + 1].MoveIn(p);
+                        this[p.Coord.X+1, p.Coord.Y].MoveIn(p);
                     else if (p.gamePad.left == ck)
-                        this[p.Coord.X - 1, p.Coord.Y].MoveIn(p);
+                        this[p.Coord.X, p.Coord.Y-1].MoveIn(p);
                     else if (p.gamePad.right == ck)
-                        this[p.Coord.X + 1, p.Coord.Y].MoveIn(p);
+                        this[p.Coord.X, p.Coord.Y+1].MoveIn(p);
                 }
                 Draw();
             }
