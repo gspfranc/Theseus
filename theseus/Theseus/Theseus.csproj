@@ -85,7 +85,7 @@
     <Compile Include="WinGameState.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MazeFiles\Start.txt">
+    <Content Include="MazeFiles\01.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Songs\QuickSilver.wav">
