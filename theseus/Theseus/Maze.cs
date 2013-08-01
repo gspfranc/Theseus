@@ -15,7 +15,7 @@ using System.Threading;
 namespace Theseus
 {
     [Serializable()]
-    public class Maze : IDrawable, IGame, IGameStateObserver
+    public class Maze : IDrawable, IGame, IMazeObserver
     {
         public enum NotifyType {Victory, DeathFromTrap, DeathFromMinotaur, Running}
 
@@ -27,13 +27,15 @@ namespace Theseus
         private IGameEngine ge = new GameEngineConsole();
         private IGameState gs = new RunningGameState();
         public ISong song { get; set; }
+        private List<MazeMessage> messages= new List<MazeMessage>();
+
 
         public Maze(int sizeX, int sizeY)
         {
             grid = new ACase[sizeX, sizeY];            
         }
 
-        public void NotifyGameStateChanged(IGameState gameState)
+        public void SetGameState(IGameState gameState)
         {
             gs = gameState;
         }
@@ -66,11 +68,17 @@ namespace Theseus
 
           
         }
-        
+
         public void AddPlayer(Player p)
         {
             player.Add(p);
             dudes.Add(p);
+        }
+
+        public void RemoveDude(ADude dude)
+        {
+            player.Remove(dude as Player);
+            dudes.Remove(dude);
         }
 
         public void Draw()
@@ -99,11 +107,6 @@ namespace Theseus
             }
         }
 
-        private void SpawnAll()
-        {
-
-        }
-
         public bool Play()
         {
             if (song != null)
@@ -119,7 +122,7 @@ namespace Theseus
             ConsoleKey ck;
 
             Draw();
-            while (gs.isRunning() && (ck = Console.ReadKey().Key) != ConsoleKey.Escape)
+            while (gs.isRunning() && player.Count > 0 && (ck = Console.ReadKey().Key) != ConsoleKey.Escape)
             {
                 foreach (var p in player)
                 {
@@ -132,7 +135,14 @@ namespace Theseus
                     else if (p.gamePad.right == ck)
                         this[p.Coord.X, p.Coord.Y+1].MoveIn(p);
                 }
+
                 Draw();
+
+                foreach(var message in messages)
+                {
+                    message.DoAction(this);
+                }
+                messages.Clear();
             }
 
             return gs.isVictory();
@@ -152,6 +162,9 @@ namespace Theseus
             } 
         }
 
-      
+        public void SendMessage(MazeMessage message)
+        {
+            messages.Add(message);
+        }
     }
 }

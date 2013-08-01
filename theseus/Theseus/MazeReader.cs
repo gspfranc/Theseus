@@ -60,7 +60,7 @@ namespace Theseus
             maze.song = getSong(songs[0], songs[1]);
 
             foreach (var gp in gamePads)
-                maze.AddPlayer(new Player(gp));
+                maze.AddPlayer(new Player(gp, maze));
 
             int i = 0;
             while (!sr.EndOfStream)

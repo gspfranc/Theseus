@@ -11,7 +11,7 @@ namespace Theseus.Case
     {
         public override void MoveIn(ADude p)
         {
-            //player.dodammage(15);
+            p.ReceiveDammage(50);
             p.Coord = Coord;
         }
     }
