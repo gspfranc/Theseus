@@ -11,6 +11,14 @@ namespace Theseus
     /// </summary>
     public class GamePad
     {
+        public GamePad()
+        {
+            this.up = ConsoleKey.UpArrow;
+            this.down = ConsoleKey.DownArrow;
+            this.left = ConsoleKey.LeftArrow;
+            this.right = ConsoleKey.RightArrow;
+        }
+
         public GamePad(ConsoleKey up, ConsoleKey down, ConsoleKey left, ConsoleKey right)
         {
             this.up = up;

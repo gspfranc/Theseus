@@ -6,6 +6,7 @@ using System.Drawing;
 
 namespace Theseus
 {
+    [Serializable]
     public class GameEngineConsole : IGameEngine
     {
         private static Dictionary<Color, ConsoleColor> _colorMap;

@@ -11,13 +11,6 @@ namespace TheseusTest
     [TestClass]
     public class LabyrinthTest
     {
-        static Wall w = new DungeonWall();
-        static Empty e = new DungeonEmpty();
-        //static Exit z = new DungeonExit();
-        static DungeonStartPosition p = new DungeonStartPosition();
-
-       
-
         [TestMethod]
         public void NoPlayer()
         {
@@ -28,6 +21,7 @@ namespace TheseusTest
                 sb.AppendLine("dungeon");
                 sb.AppendLine("9");
                 sb.AppendLine("6");
+                sb.AppendLine("wav .\\Songs\\QuickSilver.wav");
                 sb.AppendLine("= = = = = =");
                 sb.AppendLine("= o = = = =");
                 sb.AppendLine("= o = E o =");

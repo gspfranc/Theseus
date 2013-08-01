@@ -1,19 +1,19 @@
 dungeon
 15
 23
-wav .\Songs\QuickSilver.wav
+wav .\Songs\Portal.wav
 = = = = = = = = = = = = = = = = = = = = = = =
 = P = = o o o o o o o o o o o o o o o o = = =
-= o = = o = = = = o = = = = = o = = = = = = =
-= o = = o = = = = o = = = = = o = = = = = = =
+= o = = o = = = = o = = = = = o = = = = = o =
+= o = = o = = = = o = = = = = o = = = = = o =
 = o = = o o o o = o o o = = = o o o o o o o =
 = o o o o = = o = = = o = = = = = = = = = o =
 = o = = = = = o = = = o o o o o o o o = = o =
 = o o o o = = o = = = o = = = = = = o = = o =
-= = = = o o o o = = = o = = = = = = o = = o =
-= = = = o = = = = = = o = = = = = = o = = o =
-= o o o o = = = = = = o = = = = = = o = = o =
-= = = = o = = o o o = = = = = = = = o = = = =
-= = = = o = = o = o = = o o o o o = o o E = =
-= = = = o o o o = o o o o = = = o = = = = = =
+= = = = o = o o = = = o = = = = o o o = = o =
+= = = = o = = = = o = o = = o = = = o = = o =
+= o o o o = = = = o = = = = o = = = o = = = =
+= = = = o = = o o o = = = = o = = = o o o E =
+= = = = o = = o = o = = o o o o o = = = = = =
+= o o o o o o o = o o o o = = = o o o o o = =
 = = = = = = = = = = = = = = = = = = = = = = =

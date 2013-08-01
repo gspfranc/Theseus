@@ -16,7 +16,7 @@ namespace Theseus.Case
 
         public override void DoDammage(ADude d)
         {
-            d.RecieveDammage(50);
+            d.ReceiveDammage(50);
         }
     }
 }
