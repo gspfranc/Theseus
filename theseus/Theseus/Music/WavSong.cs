@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Runtime.Serialization;
 
 namespace Theseus.Music
 {
+    [Serializable]
     public class WavSong : ISong
     {
         private String path;
+        [NonSerialized]
         private Thread t;
 
         public WavSong(String path)

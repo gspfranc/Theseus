@@ -19,6 +19,7 @@ namespace TheseusTest
             sb.AppendLine("dungeon");
             sb.AppendLine("9");
             sb.AppendLine("6");
+            sb.AppendLine("wav .\\Songs\\QuickSilver.wav");
             sb.AppendLine("= = = = = =");
             sb.AppendLine("= P = = = =");
             sb.AppendLine("= o = E o =");
@@ -37,9 +38,8 @@ namespace TheseusTest
             var labyrinth = reader.CreateMaze(fileName);
             
 
-            var saveRestore = new SaveRestore();
-            saveRestore.save("save.dat", labyrinth);
-            var lab2 = saveRestore.restore("save.dat");
+            SaveRestore.save("save.dat", labyrinth);
+            var lab2 = SaveRestore.restore("save.dat");
 
             Assert.IsTrue(labyrinth.ToString() == lab2.ToString());     
         }

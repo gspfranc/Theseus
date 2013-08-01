@@ -21,6 +21,7 @@ namespace TheseusTest
                 sb.AppendLine("dungeon");
                 sb.AppendLine("9");
                 sb.AppendLine("6");
+                sb.AppendLine("wav .\\Songs\\QuickSilver.wav");
                 sb.AppendLine("= = = = = =");
                 sb.AppendLine("= o = = = =");
                 sb.AppendLine("= o = E o =");

@@ -10,7 +10,7 @@ namespace Theseus
     public class SaveRestore
     {
 
-        public void save(String FileName, Maze lab)
+        public static void save(String FileName, Maze lab)
         {
             Stream TestFileStream = File.Create(FileName);
             BinaryFormatter serializer = new BinaryFormatter();
@@ -18,7 +18,7 @@ namespace Theseus
             TestFileStream.Close();
         }
 
-        public Maze restore(String FileName)
+        public static Maze restore(String FileName)
         {
             Maze lab = null;
             if (File.Exists(FileName))
