@@ -20,7 +20,7 @@ namespace Theseus
         public enum NotifyType {Victory, DeathFromTrap, DeathFromMinotaur, Running}
 
         private ACase[,] grid;
-        private const int RADIUS_VIEW = 3;
+        private const int RADIUS_VIEW = 99;
         List<ACase> playerStartPosition = new List<ACase>();
         private List<Player> player = new List<Player>();
         private List<ADude> dudes= new List<ADude>();
