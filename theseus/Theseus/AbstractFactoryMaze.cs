@@ -16,7 +16,7 @@ namespace Theseus
 
         Portal CreatePortal3();
 
-        Exit CreateExit();
+        Exit CreateExit(Maze maze);
 
         Empty CreateStartPosition();
     }

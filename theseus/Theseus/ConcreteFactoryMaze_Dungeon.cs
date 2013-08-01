@@ -28,9 +28,9 @@ namespace Theseus
             return new DungeonPortal();
         }
 
-        public Exit CreateExit()
+        public Exit CreateExit(Maze maze)
         {
-            return new DungeonExit();
+            return new DungeonExit(maze);
         }
 
         public Empty CreateStartPosition()

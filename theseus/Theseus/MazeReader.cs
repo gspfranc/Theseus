@@ -23,7 +23,7 @@ namespace Theseus
             }
         }
 
-        private ACase GetCase(String s)
+        private ACase GetCase(String s, Maze maze)
         {
             switch (s)
             {
@@ -31,7 +31,7 @@ namespace Theseus
                 case "o": return afm.CreateEmpty();
                 case "*": return afm.CreatePortal3();
                 case "X": return afm.CreateTrap();
-                case "E": return afm.CreateExit();
+                case "E": return afm.CreateExit(maze);
                 case "P": return afm.CreateStartPosition();
             }
 
@@ -45,7 +45,7 @@ namespace Theseus
             return sr.ReadLine();
         }
 
-        public Labyrinth CreateMaze(String path)
+        public Maze CreateMaze(String path)
         {
             StreamReader sr = new StreamReader(path);
 
@@ -56,7 +56,7 @@ namespace Theseus
             String[] songs= song.Split(' ');
                   
 
-            Labyrinth maze = new Labyrinth(x, y);
+            Maze maze = new Maze(x, y);
             maze.song = getSong(songs[0], songs[1]);
 
             foreach (var gp in gamePads)
@@ -70,7 +70,7 @@ namespace Theseus
                 int j= 0;
                 foreach (String block in blocks)
                 {
-                    maze[i, j] = GetCase(block);
+                    maze[i, j] = GetCase(block, maze);
                     ++j;
                 }
                 ++i;
@@ -79,6 +79,18 @@ namespace Theseus
             maze.Validate();
 
             return maze;
+        }
+
+        public MultiGame CreateMazes(String path)
+        {
+            MultiGame mg = new MultiGame();
+
+            foreach (String file in Directory.GetFiles(path))
+            {
+                mg.AddGame(CreateMaze(file));
+            }
+
+            return mg;
         }
 
         public void AddGamePad(GamePad gp)

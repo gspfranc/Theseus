@@ -13,23 +13,30 @@ using System.Threading;
 
 
 namespace Theseus
-{   [Serializable()]
-    public class Labyrinth : IDrawable
+{
+    [Serializable()]
+    public class Maze : IDrawable, IGame, IGameStateObserver
     {
+        public enum NotifyType {Victory, DeathFromTrap, DeathFromMinotaur, Running}
+
         private ACase[,] grid;
         private const int RADIUS_VIEW = 3;
         List<ACase> playerStartPosition = new List<ACase>();
         private List<Player> player = new List<Player>();
         private List<ADude> dudes= new List<ADude>();
         private IGameEngine ge = new GameEngineConsole();
+        private IGameState gs = new RunningGameState();
         public ISong song { get; set; }
 
-        public Labyrinth(int sizeX, int sizeY)
+        public Maze(int sizeX, int sizeY)
         {
             grid = new ACase[sizeX, sizeY];            
         }
 
-        
+        public void NotifyGameStateChanged(IGameState gameState)
+        {
+            gs = gameState;
+        }
 
         public void Validate()
         {
@@ -106,15 +113,16 @@ namespace Theseus
 
             //Console.SetWindowSize(Math.Max(grid.GetLength(0), 14), grid.GetLength(1) + 1); // La console requiert une largeur minimale de 14 caratères.
 
+            Console.Clear();
             Console.SetWindowSize(Math.Max(grid.GetLength(1)+1, 14), grid.GetLength(0) + 1); // La console requiert une largeur minimale de 14 caratères.
             Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
             ConsoleKey ck;
 
             Draw();
-            while ((ck = Console.ReadKey().Key) != ConsoleKey.Escape)
+            while (gs.isRunning() && (ck = Console.ReadKey().Key) != ConsoleKey.Escape)
             {
                 foreach (var p in player)
-                { 
+                {
                     if(p.gamePad.up == ck)
                         this[p.Coord.X-1, p.Coord.Y].MoveIn(p);
                     else if (p.gamePad.down == ck)
@@ -127,7 +135,7 @@ namespace Theseus
                 Draw();
             }
 
-            return false;
+            return gs.isVictory();
         }
 
         public ACase this[int i, int j]

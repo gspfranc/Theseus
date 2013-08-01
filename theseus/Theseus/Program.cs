@@ -37,8 +37,9 @@ namespace Theseus
             string fileName = "Start.txt";
             File.WriteAllText(fileName, fileContent);
 
-            Labyrinth maze = mr.CreateMaze(fileName);
-            maze.Play();
+            MultiGame mg = new MultiGame();
+            mg.AddGame(mr.CreateMaze(fileName));
+            mg.Play();
         }
     }
 }

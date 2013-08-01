@@ -13,7 +13,7 @@ namespace TheseusTest
     {
         static Wall w = new DungeonWall();
         static Empty e = new DungeonEmpty();
-        static Exit z = new DungeonExit();
+        //static Exit z = new DungeonExit();
         static DungeonStartPosition p = new DungeonStartPosition();
 
        

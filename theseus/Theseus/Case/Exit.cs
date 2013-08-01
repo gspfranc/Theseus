@@ -10,9 +10,15 @@ namespace Theseus.Case
     [Serializable()]
     public abstract class Exit : ACase
     {
+        Maze mazeObserver;
+        protected Exit(Maze m)
+        {
+            mazeObserver = m;
+        }
+
         public override void MoveIn(ADude p)
         {
-            p.Coord = Coord;
+            mazeObserver.NotifyGameStateChanged(new WinGameState());
         }
     }
 }
