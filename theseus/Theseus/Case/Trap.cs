@@ -6,13 +6,19 @@ using System.Text;
 
 namespace Theseus.Case
 {
+    /// <summary>
+    /// Enlève de la vie au personnage et bouge le personnage à l'emplacement du piège.
+    /// Template method pour le DoDammage.
+    /// </summary>
     [Serializable()]
     public abstract class Trap : ACase
     {
-        public override void MoveIn(ADude p)
+        public override void MoveIn(ADude d)
         {
-            p.RecieveDammage(50);
-            p.Coord = Coord;
+            DoDammage(d);
+            d.Coord = Coord;
         }
+
+        public abstract void DoDammage(ADude d);
     }
 }

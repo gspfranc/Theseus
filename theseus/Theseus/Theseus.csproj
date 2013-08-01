@@ -45,12 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactoryMaze.cs" />
-    <Compile Include="ChangeStateMessage.cs" />
+    <Compile Include="MazeMessageChangeState.cs" />
+    <Compile Include="GameStateLost.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="IGameState.cs" />
     <Compile Include="IGameStateObserver.cs" />
     <Compile Include="MazeMessage.cs" />
-    <Compile Include="MessageKill.cs" />
+    <Compile Include="MazeMessageKill.cs" />
     <Compile Include="MultiGame.cs" />
     <Compile Include="Music\Beep.cs" />
     <Compile Include="Case\ACase.cs" />
@@ -68,7 +69,6 @@
     <Compile Include="Case\Wall.cs" />
     <Compile Include="ConcreteFactoryMaze_Dungeon.cs" />
     <Compile Include="GameEngineConsole.cs" />
-    <Compile Include="ConsoleAdaptor.cs" />
     <Compile Include="GamePad.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="ADude.cs" />
@@ -77,15 +77,14 @@
     <Compile Include="MazeReader.cs" />
     <Compile Include="Music\ConsoleSong.cs" />
     <Compile Include="Music\ISong.cs" />
-    <Compile Include="Music\Songs.cs" />
     <Compile Include="Music\WavSong.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RunningGameState.cs" />
+    <Compile Include="GameStateRunning.cs" />
     <Compile Include="SaveRestore.cs" />
     <Compile Include="Music\Tone.cs" />
-    <Compile Include="WinGameState.cs" />
+    <Compile Include="GameStateWin.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MazeFiles\01.txt">

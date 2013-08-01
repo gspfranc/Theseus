@@ -12,7 +12,7 @@ namespace Theseus.Case
     {
         public override void Draw(IGameEngine s)
         {
-            s.Draw(Coord, '░',Color.Black,Color.Gray);
+            s.Draw(Coord, ' ');
 
         }
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Theseus
 {
-    public class WinGameState : IGameState
+    public class GameStateWin : IGameState
     {
         public bool isRunning()
         {

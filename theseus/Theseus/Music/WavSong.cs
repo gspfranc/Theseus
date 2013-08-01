@@ -21,7 +21,7 @@ namespace Theseus.Music
         {
             if (t == null)
             {
-                 t = new Thread(() => Songs.playWav(path));
+                 t = new Thread(() => playWav(path));
                 t.Start();
             }
 
@@ -31,6 +31,13 @@ namespace Theseus.Music
         {
             t.Abort();
             t = null;
+        }
+
+        public static void playWav(String path)
+        {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.SoundLocation = path;
+            player.PlayLooping();
         }
     }
 }

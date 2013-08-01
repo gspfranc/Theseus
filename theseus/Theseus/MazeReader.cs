@@ -8,16 +8,25 @@ using Theseus.Music;
 
 namespace Theseus
 {
+    /// <summary>
+    /// Objet servant à créer un maze à partir d'un fichier texte.
+    /// Possède les gamepads des différents joueurs.
+    /// </summary>
     public class MazeReader
     {
         private AbstractFactoryMaze afm;
         private List<GamePad> gamePads = new List<GamePad>();
 
+        public void AddGamePad(GamePad gp)
+        {
+            gamePads.Add(gp);
+        }
+
         private AbstractFactoryMaze GetAbstractFactory(String s)
         {
             switch(s)
             {
-                //case "blooddragon" : return new ConcreteFactoryMaze_80s();
+                //ajouter les autres factory ici
                 case "dungeon" :
                 default : return new ConcreteFactoryMaze_Dungeon();
             }
@@ -38,6 +47,16 @@ namespace Theseus
             return afm.CreateEmpty();
         }
 
+        private ISong getSong(String s, String path)
+        {
+            switch (s)
+            {
+                case "wav": return new WavSong(path);
+                case "console": return new ConsoleSong(path);
+                default: throw new Exception("Invalid Song type.");
+            }
+        }
+
         public String GetLine(StreamReader sr)
         {
             if (sr.EndOfStream)
@@ -45,6 +64,10 @@ namespace Theseus
             return sr.ReadLine();
         }
 
+        /// <summary>
+        /// Fonction de création d'un maze unique à partir d'un fichier.
+        /// </summary>
+        /// <param name="path">Path du fichier définissant le maze</param>
         public Maze CreateMaze(String path)
         {
             StreamReader sr = new StreamReader(path);
@@ -81,6 +104,12 @@ namespace Theseus
             return maze;
         }
 
+        /// <summary>
+        /// Fonction de création d'une suite de maze à partir d'un dossier.
+        /// Prendra tous les fichiers d'un dossier et tentera de créer un maze pour ensuite les
+        /// insérer dans un MultiGame.
+        /// </summary>
+        /// <param name="path">Path du dossier contenant les fichiers de maze</param>
         public MultiGame CreateMazes(String path)
         {
             MultiGame mg = new MultiGame();
@@ -92,24 +121,5 @@ namespace Theseus
 
             return mg;
         }
-
-        public void AddGamePad(GamePad gp)
-        {
-            gamePads.Add(gp);
-        }
-
-        public ISong getSong(String s,String path)
-        {
-            switch (s)
-            {
-                case "wav": return new WavSong(path);
-                case "console" :
-                default: return new ConsoleSong(path);
-
-            }
-
-        }
     }
-
-
 }

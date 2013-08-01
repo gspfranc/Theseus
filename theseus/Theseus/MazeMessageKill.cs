@@ -5,11 +5,14 @@ using System.Text;
 
 namespace Theseus
 {
-    public class MessageKill : MazeMessage
+    /// <summary>
+    /// Message envoyé par un observee au maze pour tuer un joueur.
+    /// </summary>
+    public class MazeMessageKill : MazeMessage
     {
         private ADude dude;
 
-        public MessageKill(ADude dude)
+        public MazeMessageKill(ADude dude)
         {
             this.dude = dude;
         }

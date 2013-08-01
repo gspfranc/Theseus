@@ -5,11 +5,14 @@ using System.Text;
 
 namespace Theseus
 {
-    public class ChangeStateMessage : MazeMessage
+    /// <summary>
+    /// Message envoyé par un observee au maze pour changer son état d'exécution.
+    /// </summary>
+    public class MazeMessageChangeState : MazeMessage
     {
         private IGameState gs;
 
-        public ChangeStateMessage(IGameState gs)
+        public MazeMessageChangeState(IGameState gs)
         {
             this.gs = gs;
         }

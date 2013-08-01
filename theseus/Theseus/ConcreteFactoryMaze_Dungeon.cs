@@ -6,7 +6,10 @@ using Theseus.Case;
 
 namespace Theseus
 {
-    class ConcreteFactoryMaze_Dungeon : AbstractFactoryMaze 
+    /// <summary>
+    /// Factory concrète d'un maze de type "Dungeon"
+    /// </summary>
+    class ConcreteFactoryMaze_Dungeon : AbstractFactoryMaze
     {
         public Empty CreateEmpty()
         {

@@ -7,10 +7,14 @@ using System.IO;
 
 namespace Theseus.Case
 {
+    /// <summary>
+    /// Case de sortie du maze. Lorsque cette case est atteinte, le maze
+    /// contenant cette case est averti.
+    /// </summary>
     [Serializable()]
     public abstract class Exit : ACase
     {
-        Maze mazeObserver;
+        IMazeObserver mazeObserver;
         protected Exit(Maze m)
         {
             mazeObserver = m;
@@ -18,7 +22,7 @@ namespace Theseus.Case
 
         public override void MoveIn(ADude p)
         {
-            mazeObserver.SetGameState(new WinGameState());
+            mazeObserver.SendMessage(new MazeMessageChangeState(new GameStateWin()));
         }
     }
 }

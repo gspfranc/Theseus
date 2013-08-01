@@ -7,9 +7,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Theseus
 {
+    /// <summary>
+    /// Classe servant à sauvegarder l'état d'un jeu pour le restorer plus tard.
+    /// </summary>
     public class SaveRestore
     {
-
         public void save(String FileName, Maze lab)
         {
             Stream TestFileStream = File.Create(FileName);
@@ -35,8 +37,5 @@ namespace Theseus
 
             return lab;
         }
-
-
-
     }
 }

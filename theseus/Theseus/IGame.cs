@@ -5,6 +5,10 @@ using System.Text;
 
 namespace Theseus
 {
+    /// <summary>
+    /// Représente la partie Component du pattern Composite.
+    /// IGame (Component), Maze (leaf) et MultiGame (composite).
+    /// </summary>
     public interface IGame
     {
         //true == victory

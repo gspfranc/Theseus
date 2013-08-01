@@ -5,13 +5,12 @@ using System.Text;
 
 namespace Theseus
 {
-    public class RunningGameState : IGameState
+    public class GameStateRunning : IGameState
     {
         public bool isRunning()
         {
             return true;
         }
-
 
         public bool isVictory()
         {

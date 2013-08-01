@@ -5,6 +5,10 @@ using System.Text;
 
 namespace Theseus
 {
+    /// <summary>
+    /// Servirait au multiplayer ou au changement de configuration des touches.
+    /// Défini quelles clés correspondent avec quelle action.
+    /// </summary>
     public class GamePad
     {
         public GamePad(ConsoleKey up, ConsoleKey down, ConsoleKey left, ConsoleKey right)
@@ -14,6 +18,7 @@ namespace Theseus
             this.left = left;
             this.right = right;
         }
+
         public ConsoleKey up { get; private set; }
         public ConsoleKey down { get; private set; }
         public ConsoleKey left { get; private set; }

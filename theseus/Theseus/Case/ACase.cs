@@ -21,12 +21,21 @@ namespace Theseus.Case
 
         /// <summary>
         /// Chaque cases ont des conséquences différentes lorsqu'un personnage entre dedans.
-        /// certaines enlèvent de la vie, d'autres déplace le 
+        /// certaines enlèvent de la vie, d'autres déplace le personnage.
         /// </summary>
         /// <param name="p">Personnage entrant dans la case</param>
         public abstract void MoveIn(ADude p);
 
+        /// <summary>
+        /// Permet à chaque implémentation de la classe ACase de se dessiner de façon différente.
+        /// </summary>
+        /// <param name="s"></param>
         public abstract void Draw(IGameEngine s);
+
+
+        /// <summary>
+        /// Défini si la case en question est un emplacement valide pour Spawner un joueur.
+        /// </summary>
         public virtual bool IsPlayerSpawn()
         {
             return false;

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Theseus
 {
+    /// <summary>
+    /// Contient une liste de "level" que l'on doit compléter avant de terminer le jeu.
+    /// </summary>
     public class MultiGame : IGame
     {
         List<IGame> games= new List<IGame>();

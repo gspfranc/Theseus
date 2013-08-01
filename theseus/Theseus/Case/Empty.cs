@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Theseus.Case
 {
+    /// <summary>
+    /// Case vide. Permet au joueur d'entrer dedans sans conséquence.
+    /// </summary>
     [Serializable()]
     public abstract class Empty : ACase
     {

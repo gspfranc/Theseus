@@ -20,12 +20,12 @@ namespace Theseus
         public enum NotifyType {Victory, DeathFromTrap, DeathFromMinotaur, Running}
 
         private ACase[,] grid;
-        private const int RADIUS_VIEW = 99;
+        private const int RADIUS_VIEW = 3;
         List<ACase> playerStartPosition = new List<ACase>();
         private List<Player> player = new List<Player>();
         private List<ADude> dudes= new List<ADude>();
         private IGameEngine ge = new GameEngineConsole();
-        private IGameState gs = new RunningGameState();
+        private IGameState gs = new GameStateRunning();
         public ISong song { get; set; }
         private List<MazeMessage> messages= new List<MazeMessage>();
 
@@ -65,8 +65,6 @@ namespace Theseus
                 throw new Exception("Invalid labyrinth file, No Player is present");
             if (!hasExit)
                 throw new Exception("Invalid labyrinth file, No Exit is present");
-
-          
         }
 
         public void AddPlayer(Player p)
@@ -78,6 +76,8 @@ namespace Theseus
         public void RemoveDude(ADude dude)
         {
             player.Remove(dude as Player);
+            if (player.Count == 0)
+                SetGameState(new GameStateLost());
             dudes.Remove(dude);
         }
 
@@ -114,15 +114,14 @@ namespace Theseus
 
             player[0].Coord = playerStartPosition[0].Coord;
 
-            //Console.SetWindowSize(Math.Max(grid.GetLength(0), 14), grid.GetLength(1) + 1); // La console requiert une largeur minimale de 14 caratères.
-
             Console.Clear();
-            Console.SetWindowSize(Math.Max(grid.GetLength(1)+1, 14), grid.GetLength(0) + 1); // La console requiert une largeur minimale de 14 caratères.
+            Console.CursorVisible = false;
+            Console.SetWindowSize(Math.Max(grid.GetLength(1) + 1, 14), grid.GetLength(0)); // La console requiert une largeur minimale de 14 caratères.
             Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
             ConsoleKey ck;
 
             Draw();
-            while (gs.isRunning() && player.Count > 0 && (ck = Console.ReadKey().Key) != ConsoleKey.Escape)
+            while (gs.isRunning() && (ck = Console.ReadKey().Key) != ConsoleKey.Escape)
             {
                 foreach (var p in player)
                 {

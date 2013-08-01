@@ -13,5 +13,10 @@ namespace Theseus.Case
         {
             s.Draw(Coord, 'X');
         }
+
+        public override void DoDammage(ADude d)
+        {
+            d.RecieveDammage(50);
+        }
     }
 }
