@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Theseus
 {
-    public interface IMazeObserver
+    public interface MazeMessage
     {
-        void SendMessage(MazeMessage message);
+        void DoAction(Maze m);
     }
 }

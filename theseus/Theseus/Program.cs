@@ -24,9 +24,9 @@ namespace Theseus
             sb.AppendLine("console .\\Songs\\tetris.txt");
             sb.AppendLine("= = = = = =");
             sb.AppendLine("= P = = = =");
-            sb.AppendLine("= o = E o =");
-            sb.AppendLine("= o = = o =");
-            sb.AppendLine("= o = = o =");
+            sb.AppendLine("= X = E o =");
+            sb.AppendLine("= X = = o =");
+            sb.AppendLine("= X = = o =");
             sb.AppendLine("= o o o o =");
             sb.AppendLine("= o = = = =");
             sb.AppendLine("= o o o o =");

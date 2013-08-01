@@ -20,11 +20,13 @@ namespace Theseus
             {
                 if (!g.Play())
                 {
+                    Console.Clear();
+                    Console.WriteLine("Congratulations, you have failed life.");
                     return false;
                 }
                 Console.Clear();
             }
-
+            
             Console.WriteLine("Game completed\n");
             return true;
         }

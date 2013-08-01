@@ -18,7 +18,7 @@ namespace Theseus.Case
 
         public override void MoveIn(ADude p)
         {
-            mazeObserver.NotifyGameStateChanged(new WinGameState());
+            mazeObserver.SetGameState(new WinGameState());
         }
     }
 }

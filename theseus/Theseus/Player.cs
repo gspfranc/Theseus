@@ -9,11 +9,12 @@ namespace Theseus
     [Serializable()]
     public class Player : ADude
     {
-        public Player(GamePad gp)
+        public Player(GamePad gp, IMazeObserver observer)
+            : base(100, observer)
         {
             gamePad = gp;
-        }
-        int health { get; set; }
+        }        
+
         public GamePad gamePad { get; private set; }
 
         public override void Draw(IGameEngine s)

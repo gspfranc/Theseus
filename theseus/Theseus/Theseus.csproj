@@ -45,9 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactoryMaze.cs" />
+    <Compile Include="ChangeStateMessage.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="IGameState.cs" />
     <Compile Include="IGameStateObserver.cs" />
+    <Compile Include="MazeMessage.cs" />
+    <Compile Include="MessageKill.cs" />
     <Compile Include="MultiGame.cs" />
     <Compile Include="Music\Beep.cs" />
     <Compile Include="Case\ACase.cs" />
