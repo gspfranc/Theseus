@@ -11,7 +11,7 @@ namespace Theseus
     public abstract class ADude : IDrawable
     {
         public Point Coord { get; set; }
-        int health { get; set; }
+        public int health { get; set; }
         private IMazeObserver observer;
 
         public ADude(int life, IMazeObserver observer)
@@ -20,10 +20,10 @@ namespace Theseus
             this.observer = observer;
         }
 
-        public void RecieveDammage(int dammage)
+        public void ReceiveDammage(int dammage)
         {
             health -= dammage;
-            if (health < 0)
+            if (health <= 0)
                 observer.SendMessage(new MessageKill(this));
         }
 
