@@ -4,16 +4,16 @@ dungeon
 wav .\Songs\QuickSilver.wav
 = = = = = = = = = = = = = = = = = = = = = = =
 = P = = o o o o o o o o o o o o o o o o = = =
-= o = = o = = = = o = = = = = o = = = = = = =
-= o = = o = = = = o = = = = = o = = = = = = =
+= o = = o = = = = o = = = = = o = = = = = o =
+= o = = o = = = = o = = = = = o = = = = = o =
 = o = = o o o o = o o o = = = o o o o o o o =
 = o o o o = = o = = = o = = = = = = = = = o =
 = o = = = = = o = = = o o o o o o o o = = o =
 = o o o o = = o = = = o = = = = = = o = = o =
-= = = = o o o o = = = o = = = = = = o = = o =
-= = = = o = = = = = = o = = = = = = o = = o =
-= o o o o = = = = = = o = = = = = = o = = o =
-= = = = o = = o o o = = = = = = = = o = = = =
-= = = = o = = o = o = = o o o o o = o o E = =
-= = = = o o o o = o o o o = = = o = = = = = =
+= = = = o = o o = = = o = = = = o o o = = o =
+= = = = o = = = = o = o = = o = = = o = = o =
+= o o o o = = = = o = = = = o = = = o = = = =
+= = = = o = = o o o = = = = o = = = o o o E =
+= = = = o = = o = o = = o o o o o = = = = = =
+= o o o o o o o = o o o o = = = o o o o o = =
 = = = = = = = = = = = = = = = = = = = = = = =
