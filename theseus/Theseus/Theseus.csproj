@@ -85,6 +85,9 @@
     <Compile Include="WinGameState.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MazeFiles\Start.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Songs\QuickSilver.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
